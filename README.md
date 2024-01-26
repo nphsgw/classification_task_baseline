@@ -1,12 +1,19 @@
 # classification_task_baseline
 
 ## Overview
-This repository is a compilation of the author's journey and learnings in the realm of image classification tasks. It is crafted to serve as a baseline and a starting guide for beginners venturing into the field of image recognition. The repository is structured around a comprehensive Jupyter Notebook (`cifar10_train.ipynb`) that encapsulates the entire process from training to inference, using the CIFAR-10 dataset as a foundational example.
+This repository is a compilation of the author's journey and learnings in the realm of image classification tasks. It is crafted to serve as a baseline and a starting guide for beginners venturing into the field of image recognition. The repository includes comprehensive Jupyter Notebooks and other resources that encapsulate the entire process from training to inference, using datasets like CIFAR-10 as foundational examples.
 
-## Features
-- **Beginner-Friendly Guide**: The content is organized to assist beginners in understanding the fundamental concepts and steps involved in image classification tasks.
-- **End-to-End Workflow**: The `cifar10_train.ipynb` notebook provides a detailed walkthrough of the entire workflow, including data preprocessing, model training, prediction, and evaluation.
-- **CIFAR-10 Dataset Example**: Utilizes the CIFAR-10 dataset, a staple in the image classification domain, to demonstrate the training and inference process.
+## Repository Structure
+
+- `cifar10_train.ipynb`: A Jupyter Notebook that demonstrates the workflow of an image classification task using the CIFAR-10 dataset.
+- `config.py`: Contains configuration settings for the project, such as model parameters, training settings, and file paths, making it easy to manage and adjust settings in one place.
+- `dataloaders.py`: Defines data loaders that handle data loading and batching, ensuring efficient and convenient data feeding to the model during training and inference.
+- `datasets.py`: Contains code for dataset preparation, including downloading, preprocessing, and augmenting data, making it ready for use by the model.
+- `inference.py`: Provides functionality for model inference, allowing the model to make predictions on new, unseen data.
+- `metric.py`: Includes code for evaluating model performance, defining various metrics such as accuracy, precision, recall, and F1-score.
+- `model_manager.py`: Manages model-related tasks, including model creation, loading pre-trained weights, saving, and updating models.
+- `trainer.py`: Contains the training loop, handling the training process, including forward and backward passes, loss computation, and optimizer steps.
+
 
 ## Getting Started
 
@@ -33,6 +40,10 @@ This repository is a compilation of the author's journey and learnings in the re
 To get started with image classification:
 1. Open the `cifar10_train.ipynb` notebook in Jupyter Notebook.
 2. Follow the step-by-step instructions within the notebook to understand the basic usage and workflow of an image classification task.
+
+### Example
+
+
 
 ## License
 This project is licensed under the [MIT License](LICENSE.md). See the `LICENSE.md` file for more details.

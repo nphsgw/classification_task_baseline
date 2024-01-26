@@ -54,10 +54,16 @@ class ImageClassifierInference:
             y = y.cpu().numpy()
             y = [np.argmax(z) for z in y[:,]]
             preds.append(y)
-        preds = np.concatenate(preds)
+        self.preds = np.concatenate(preds)
         if is_classes:
             self.val_metrics.compute()
             self.val_metrics.save_file()
             self.val_metrics.reset()
-        else:
-            pass
+
+    def write_prediction(self):
+        image_ids = [os.path.basename(path) for path, _ in self.test_loader.dataset.imgs]
+        os.makedirs("./out", exist_ok=True)
+        with open("./out/out.csv", "w") as f:
+            f.write("id,label\n")
+            for i, p in zip(image_ids, self.preds):
+                f.write("{},{}\n".format(i, p))

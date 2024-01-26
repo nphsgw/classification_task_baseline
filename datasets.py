@@ -92,6 +92,8 @@ class CustomDatasets:
             # split train_dataset
             self.split_train_dataset = Subset(self.labeled_train_dataset, train_idx)
             if enable_test_split:
+                if (train_ratio + val_ratio) > 1.0:
+                    ValueError("")
                 test_rate = val_ratio / (1.0 - train_ratio)
 
                 if test_rate > 0.5:
@@ -117,7 +119,7 @@ class CustomDatasets:
                 print("Split train_datasets => split_train_dataset, split_val_dataset and split_test_dataset")
                 print(f"ratio train : val : test = {train_ratio} : {val_ratio} : {1.0 - train_ratio - val_ratio}")
                 print(
-                    f"train_dataset len={len(self.split_val_dataset)}, val_dataset len={len(self.split_val_dataset)}, test_dataset len={len(self.split_test_dataset)}"
+                    f"train_dataset len={len(self.split_train_dataset)}, val_dataset len={len(self.split_val_dataset)}, test_dataset len={len(self.split_test_dataset)}"
                 )
             else:
                 self.split_val_dataset = copy.deepcopy(Subset(self.labeled_train_dataset, val_idx))
