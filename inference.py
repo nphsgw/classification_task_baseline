@@ -41,8 +41,8 @@ class ImageClassifierInference:
         Args:
             is_classes (bool): Flag to determine whether to return class predictions or probabilities.
         """
-        if is_classes:
-            self.model_manager.model.eval()
+        
+        self.model_manager.model.eval()
         pred_fun = torch.nn.Softmax(dim=1)
         preds = []
         for x, y_t in tqdm(self.test_loader):
